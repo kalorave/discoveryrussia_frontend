@@ -1,0 +1,212 @@
+/* ******************************************************** */
+/* ****************variables******************************* */
+/* ******************************************************** */
+
+// colors
+
+$color--white: #ffffff; //white
+$color--black: #000000; //black
+$color--red: #F44D4D; //red btn
+$color--blue: #00D0DB; //blue btn
+$color--orange: #F4794D; //orange discount
+$color--yellow: #F2C94C;
+$color--purple: #9B51E0;
+
+// in-between tints
+
+$color--darkRed: #B73A3A; //red btn shadow
+$color--darkOrange: #B75B3A; //orange discount shadow
+$color--darkYellow: #B59739;
+$color--darkPurple: #743DA8;
+
+
+$color--darkBlue: #009CA4; //blue btn shadow
+$color--lightBlue: #E9F9FA;
+$color--blue_3: #99DDE1;
+// shades of gray
+//color--nameitem_%black
+$color--gray1_13: #222222; //black is the new black! :)
+$color--gray2_32: #515151; //footer bcg
+$color--gray3_40: #666666; //select list headline color
+$color--gray4_45: #747474;
+$color--gray5_59: #979797; //footer copy textf
+$color--gray6_70: #b2b2b2;
+$color--gray7_85: #d9d9d9;
+$color--gray8_90: #e7e7e7;
+$color--gray88_95: #f4f4f4;
+$color--gray9_96: #f5f5f5;
+
+$color--gray10: #887B7B;
+$color--gray11: #68696C;
+$color--gray12: #E5E5E5;
+$color--gray13: #808080;
+$color--gray14: #EFEFEF;
+$color--gray15: #b3b3b3;
+$color--gray16: #f2f2f2;
+$color--gray17: #cccccc;
+$color--gray18: #B6A9A9;
+$color--gray19: #828282;
+$color--gray20: #F7F7F7;
+
+//new name **** old name
+// $color--gray1_13   ************************   $color--lightblack:  #222222;
+// $color--gray2_32   ************************   $color--graydark:    #515151;
+// $color--gray3_40   ************************   $color--gray3:       #666666;
+// $color--gray4_45   ************************   $color--gray8:       #747474;
+// $color--gray5_59   ************************   $color--grey4:       #979797;
+// $color--gray6_70   ************************   $color--gray6:       #b2b2b2;
+// $color--gray7_85   ************************   $color--gray5:       #d9d9d9;
+// $color--gray8_90   ************************   $color--gray7:       #e7e7e7;
+// $color--gray9_96   ************************   $color--gray2:       #f5f5f5; $color--gray1 #f4f4f4
+
+/* ******************************************************** */
+/* ****************mixins********************************** */
+/* ******************************************************** */
+
+//fonts
+
+@mixin font--AcromNormalThin { //  font-family/font-style/font-weight
+  font-family: 'Acrom';
+  font-style: normal;
+  font-weight: 100;
+}
+@mixin font--AcromNormalLight {
+  font-family: 'Acrom';
+  font-style: normal;
+  font-weight: 300;
+}
+@mixin font--AcromNormalNormal {
+  font-family: 'Acrom';
+  font-style: normal;
+  font-weight: 400;
+}
+@mixin font--AcromNormalMedium {
+  font-family: 'Acrom';
+  font-style: normal;
+  font-weight: 500;
+}
+@mixin font--AcromNormalBold {
+  font-family: 'Acrom';
+  font-style: normal;
+  font-weight: 700;
+}
+@mixin font--AcromNormalExtraBold {
+  font-family: 'Acrom';
+  font-style: normal;
+  font-weight: 800;
+}
+
+
+@mixin customScrollbar {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {// width
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {// Track
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {// Handle
+    background: $color--gray6_70;
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-thumb:hover {// Handle on hover
+    background-color: $color--gray13;
+  }
+}
+
+
+//grid
+
+$columns: 12;
+$columns-gap: 30px;
+$desktop-screen: 1200px;
+$tablet-screen: 756px;
+$mobile-screen: 320px;
+
+
+
+@mixin media-phone {
+  @media (max-width: #{$tablet-screen}) {/*756*/
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (min-width: #{$tablet-screen + 1px}) and (max-width: #{$desktop-screen - 1px}) {/*757-1199*/
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (min-width: #{$desktop-screen}) {/*1200*/
+    @content;
+  }
+}
+
+@mixin grid-container {
+  margin: 0 auto;
+  overflow: hidden;
+  @include media-phone {
+    width: $mobile-screen;
+  }
+  @include media-tablet {
+    width: $tablet-screen - 30px;
+  }
+  @include media-desktop {
+    width: $desktop-screen - 30px;
+  }
+}
+
+@mixin breaking-container {
+  margin: 0 auto;
+  @include media-phone {
+    width: $mobile-screen;
+  }
+  @include media-tablet {
+    width: $tablet-screen - 30px;
+  }
+  @include media-desktop {
+    width: $desktop-screen - 30px;
+  }
+}
+
+@mixin grid-row($gap: $columns-gap) {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(#{$gap} / -2);
+}
+
+@mixin grid-item($gap: $columns-gap) {
+  box-sizing: border-box;
+  margin:0 calc(#{$gap} / 2);
+}
+
+
+@mixin col-desktop($occupied-columns) {
+  @include media-desktop {
+    width: calc(100% / #{$columns} * #{$occupied-columns} - #{$columns-gap});
+  }
+}
+
+@mixin col-tablet($occupied-columns) {
+  @include media-tablet {
+    width: calc(100% / #{$columns} * #{$occupied-columns} - #{$columns-gap});
+  }
+}
+
+@mixin col-mobile($occupied-columns) {
+  @include media-phone {
+    width: calc(100% / #{$columns} * #{$occupied-columns} - #{$columns-gap});
+  }
+}
+
+// ui
+
+@mixin disableSelection {
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}

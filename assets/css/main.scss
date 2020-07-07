@@ -1,0 +1,289 @@
+/* ******************************************************** */
+/* ****************fonts*********************************** */
+/* ******************************************************** */
+
+@font-face {
+  font-family: 'Acrom';
+  src: url('/fonts/TheNorthernBlock-AcromThin.otf');
+  font-weight: 100;
+  display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Acrom';
+  src: url('/fonts/TheNorthernBlock-AcromLight.otf');
+  font-weight: 300;
+  display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Acrom';
+  src: url('/fonts/TheNorthernBlock-Acrom.otf');
+  font-weight: 400;
+  display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Acrom';
+  src: url('/fonts/TheNorthernBlock-AcromMedium.otf');
+  font-weight: 500;
+  display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Acrom';
+  src: url('/fonts/TheNorthernBlock-AcromBold.otf');
+  font-weight: 700;
+  display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Acrom';
+  src: url('/fonts/TheNorthernBlock-AcromExtraBold.otf');
+  font-weight: 800;
+  display: swap;
+  font-style: normal;
+}
+
+
+/* font-weight: 100; *  Thin                    */
+/* font-weight: 200;    Extra Light             */
+/* font-weight: 300; *  Light                   */
+/* font-weight: 400; *  Normal                  */
+/* font-weight: 500; *  Medium                  */
+/* font-weight: 600;    Semi Bold (Demi Bold)   */
+/* font-weight: 700; *  Bold                    */
+/* font-weight: 800; *  Extra Bold              */
+/* font-weight: 900;    Black (Heavy)           */
+
+/* ******************************************************** */
+/* ****************reset*********************************** */
+/* ******************************************************** */
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126
+License: none (public domain)*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ******************************************************** */
+/* ****************svg icons style************************* */
+/* ******************************************************** */
+
+.icon_letter_blue {fill: $color--blue;}
+.icon_chat_online {fill: $color--blue;}
+.icon_arrow {fill:$color--white;}
+.icon_close_select {fill: $color--gray13;}
+.icon_arrow_blue {fill: none; stroke: $color--blue;}
+
+/* ******************************************************** */
+/* ****************main************************************ */
+/* ******************************************************** */
+
+
+* {
+  border: none;
+  outline: none;
+}
+
+body {
+  background-color: $color--gray9_96;
+  font-family: 'Lato', sans-serif;
+  &.overflow-hidden {
+    overflow: hidden;
+  }
+}
+
+// line
+
+.line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: $color--gray4_45;
+}
+
+// main btn
+
+.main-btn-red,
+.main-btn-blue,
+.main-btn-white {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: $color--white;
+  cursor: pointer;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15), inset 0px -3px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s linear;
+  &:active {
+    box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s linear;
+  }
+}
+
+.main-btn-red {background-color: $color--red;}
+.main-btn-blue {background-color: $color--blue;}
+.main-btn-white {
+  color: $color--gray1_13;
+  background-color: $color--white;
+  border: 1px solid $color--gray7_85;
+  box-shadow: inset 0px -3px 0px $color--gray7_85;
+}
+
+// discount icon
+
+.discount-icon-orange,
+.discount-icon-red,
+.discount-icon-yellow,
+.discount-icon-purple {
+  position: relative;
+  overflow: hidden;
+  .discount-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 100%;
+    p {
+      color: $color--white;
+      font-size: 14px;
+      text-align: center;
+      span {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.discount-icon-yellow .discount-icon { background-color: $color--yellow;   box-shadow: 0px 0px 15px $color--yellow,  inset 0px -2px 0px $color--darkYellow;}
+.discount-icon-orange .discount-icon { background-color: $color--orange;   box-shadow: 0px 0px 15px $color--orange,  inset 0px -2px 0px $color--darkOrange;}
+.discount-icon-red    .discount-icon { background-color: $color--red;      box-shadow: 0px 0px 15px $color--red,     inset 0px -2px 0px $color--darkRed;}
+.discount-icon-purple .discount-icon { background-color: $color--purple;   box-shadow: 0px 0px 15px $color--purple,  inset 0px -2px 0px $color--darkPurple;}
+
+// block headline
+
+.block-headline {
+  font-size: 24px;
+  line-height: 29px;
+  width: 273px;
+  margin: 0 auto;
+  color: $color--gray1_13;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #222222;
+  @include font--AcromNormalBold;
+  @include media-desktop {
+    font-size: 48px;
+    line-height: 70px;
+    letter-spacing: -1px;
+    width: auto;
+  }
+}
+
+
+// custom scrollbar style
+
+// $color--gray15
+
+.vb > .vb-dragger {
+    z-index: 5;
+    width: 12px;
+    right: 0;
+    cursor: pointer;
+}
+
+.vb > .vb-dragger > .vb-dragger-styler {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotate3d(0,0,0,0);
+    transform: rotate3d(0,0,0,0);
+    -webkit-transition:
+        background-color 100ms ease-out,
+        margin 100ms ease-out,
+        height 100ms ease-out;
+    transition:
+        background-color 100ms ease-out,
+        margin 100ms ease-out,
+        height 100ms ease-out;
+    background-color: $color--gray15;
+    margin: 5px 5px 5px 0;
+    border-radius: 20px;
+    height: calc(100% - 10px);
+    display: block;
+    width: 6px;
+}
+
+.vb.vb-scrolling-phantom > .vb-dragger > .vb-dragger-styler {
+    background-color: $color--gray15;
+}
+
+.vb > .vb-dragger:hover > .vb-dragger-styler {
+    background-color: $color--gray15;
+    width: 6px;
+
+}
+
+.vb.vb-dragging > .vb-dragger > .vb-dragger-styler { //click
+    width: 6px;
+}
+
+.vb.vb-dragging-phantom > .vb-dragger > .vb-dragger-styler {
+    background-color: $color--gray15;
+}
